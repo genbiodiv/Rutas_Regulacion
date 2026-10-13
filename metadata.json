@@ -1,0 +1,6 @@
+{
+  "name": "Ruta Molecular: Regulación y Puntos de Control",
+  "description": "Guía de trabajo universitaria interactiva sobre la regulación de la expresión génica bajo el paradigma de rutas y puntos de control y modelo CQRF.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
