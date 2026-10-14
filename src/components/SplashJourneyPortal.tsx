@@ -63,7 +63,7 @@ export const SplashJourneyPortal: React.FC<SplashJourneyPortalProps> = ({
             ELIGE TU RUTA DE ESTUDIO
           </span>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">
-            Dos filosofías arquitectónicas independientes
+            Dos tipos de organismos tienen mecanismos distintos
           </h2>
         </div>
 
