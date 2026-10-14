@@ -8,7 +8,8 @@ import { TopNavbar, AppTabType } from './components/TopNavbar';
 import { SplashJourneyPortal } from './components/SplashJourneyPortal';
 import { TollStationExplorer } from './components/TollStationExplorer';
 import { CaseAnalysisWorkbench } from './components/CaseAnalysisWorkbench';
-import { MarkdownGuideView } from './components/MarkdownGuideView';
+import { ComprehensiveGuideView } from './components/ComprehensiveGuideView';
+import { AcademicSourcesView } from './components/AcademicSourcesView';
 import { MolecularGlossary } from './components/MolecularGlossary';
 
 export default function App() {
@@ -35,32 +36,6 @@ export default function App() {
       setActiveTab('prokaryote');
     }
     setTargetMolecularLevel('all');
-  };
-
-  // Molecular level selection from splash: ADN, ARN, Proteína
-  const handleSelectMolecularLevel = (level: 'ADN' | 'ARN' | 'Proteína', lineage?: 'eukaryote' | 'prokaryote') => {
-    const chosenLineage = lineage || 'eukaryote';
-    setTargetMolecularLevel(level);
-
-    if (chosenLineage === 'eukaryote') {
-      if (level === 'ADN') {
-        setTargetStationId('euk-1');
-      } else if (level === 'ARN') {
-        setTargetStationId('euk-2');
-      } else {
-        setTargetStationId('euk-7');
-      }
-      setActiveTab('eukaryote');
-    } else {
-      if (level === 'ADN') {
-        setTargetStationId('prok-1');
-      } else if (level === 'ARN') {
-        setTargetStationId('prok-2');
-      } else {
-        setTargetStationId('prok-5');
-      }
-      setActiveTab('prokaryote');
-    }
   };
 
   const handleGoToStationFromCase = (stationId: string) => {
@@ -96,7 +71,8 @@ export default function App() {
           <SplashJourneyPortal
             onStartFullJourney={handleStartFullJourney}
             onSelectLineage={handleSelectLineage}
-            onSelectMolecularLevel={handleSelectMolecularLevel}
+            onGoToGuide={() => setActiveTab('guide')}
+            onGoToSources={() => setActiveTab('sources')}
             onOpenGlossary={() => {
               setActiveGlossaryTermId(null);
               setIsGlossaryOpen(true);
@@ -125,8 +101,12 @@ export default function App() {
           />
         )}
 
-        {activeTab === 'markdown' && (
-          <MarkdownGuideView />
+        {activeTab === 'guide' && (
+          <ComprehensiveGuideView />
+        )}
+
+        {activeTab === 'sources' && (
+          <AcademicSourcesView />
         )}
       </main>
 

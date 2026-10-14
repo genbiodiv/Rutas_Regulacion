@@ -1,8 +1,8 @@
 import React from 'react';
-import { Dna, Sparkles, ShieldAlert, FileText, BookMarked, Sun, Moon, Type, Lock, Zap } from 'lucide-react';
+import { Dna, Sparkles, ShieldAlert, BookOpen, GraduationCap, BookMarked, Sun, Moon, Type, Lock, Zap } from 'lucide-react';
 import { useTheme, FontSizeScale } from '../context/ThemeContext';
 
-export type AppTabType = 'splash' | 'eukaryote' | 'prokaryote' | 'cases' | 'markdown';
+export type AppTabType = 'splash' | 'eukaryote' | 'prokaryote' | 'cases' | 'guide' | 'sources';
 
 interface TopNavbarProps {
   activeTab: AppTabType;
@@ -18,11 +18,12 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
   const { theme, toggleTheme, fontSize, setFontSize } = useTheme();
 
   const navItems: { id: AppTabType; label: string; icon: React.ReactNode; badge?: string }[] = [
-    { id: 'splash', label: '01. Portal del Recorrido', icon: <Sparkles className="w-3.5 h-3.5" /> },
+    { id: 'splash', label: '01. Bienvenida', icon: <Sparkles className="w-3.5 h-3.5" /> },
     { id: 'eukaryote', label: '02. Ruta Eucariota', icon: <Lock className="w-3.5 h-3.5" />, badge: '11 Puntos' },
     { id: 'prokaryote', label: '03. Ruta Bacteriana', icon: <Zap className="w-3.5 h-3.5" />, badge: '8 Puntos' },
     { id: 'cases', label: '04. Casos Clínicos', icon: <ShieldAlert className="w-3.5 h-3.5" /> },
-    { id: 'markdown', label: '05. Guía Completa', icon: <FileText className="w-3.5 h-3.5" /> },
+    { id: 'guide', label: '05. Guía de Estudio', icon: <BookOpen className="w-3.5 h-3.5" /> },
+    { id: 'sources', label: '06. Fuentes y Consulta', icon: <GraduationCap className="w-3.5 h-3.5" /> },
   ];
 
   return (
